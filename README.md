@@ -1,24 +1,26 @@
-# README
+# Teachable Courses Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About This Project
 
-Things you may want to cover:
+This project demonstrates fetching course and enrollment information from the Teachable Public API. It provides:
 
-* Ruby version
+- A list of all published courses in your school (`ReportsController#index`), showing each course's name and heading.
+- A detailed view for each course (`ReportsController#show`), listing all actively enrolled students with their names and emails.
 
-* System dependencies
+## API Key Usage
 
-* Configuration
+For the purposes of this test, the API key is included directly in the initializer (`config/initializers/teachable.rb`). This ensures that the evaluator can run the project without needing to configure environment variables.
 
-* Database creation
+> **Important:** In a real production environment, API keys should **never** be committed to a repository. The recommended approach is to use environment variables or a secure secrets manager.
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+All tests were written for the `TeachableApiService` using **MiniTest**, which is the default testing framework for Rails.
 
-* Services (job queues, cache servers, search engines, etc.)
+The `ReportsController` itself is not directly tested because it is a thin layer that delegates all logic to the service. Testing the service ensures that the main functionality — fetching courses and enrollments — is fully covered, and keeps tests simple and maintainable.
 
-* Deployment instructions
+## How It Works
 
-* ...
+- `TeachableApiService` handles all communication with the Teachable Public API.
+- `ReportsController#index` fetches and displays all courses.
+- `ReportsController#show` fetches and displays enrolled students for a specific course.
