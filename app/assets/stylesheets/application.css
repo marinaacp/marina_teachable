@@ -8,3 +8,25 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  background-color: #FBF8F2;
+}
+
+.course-card-img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.table.dataTable {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table.dataTable thead th {
+  background-color: #f0e9dd;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+}
